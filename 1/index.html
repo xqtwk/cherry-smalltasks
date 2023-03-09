@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Input</title>
+</head>
+<input type="checkbox" class="toggle-switch">
+</html>
+<style>
+:root {
+    --input-height: 50px;
+    --input-width: 150px;
+}
+.toggle-switch {
+  position: relative;
+  width: var(--input-width);
+  height: var(--input-height);
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  background-color: #ccc;
+  border-radius: 50px;
+  cursor: pointer;
+}
+.toggle-switch:checked {
+    background-color: #2196F3;;
+}
+.toggle-switch::before {
+  content: "";
+  position: absolute;
+  width: calc(var(--input-height) * 0.8);
+  height: calc(var(--input-height) * 0.8);
+  top: calc(var(--input-height) * 0.1);
+  left: calc(var(--input-width) * 0.03);
+  background-color: white;
+  border-radius: 50%;
+  transition: left 0.4s ease-out, right 0.4s ease-out;
+}
+
+
+.toggle-switch:checked::before {
+  left: calc(var(--input-width) - (var(--input-height) * 0.8) - calc(var(--input-width) * 0.03));
+  right: calc(var(--input-width) * 0.03);
+}
+</style>
